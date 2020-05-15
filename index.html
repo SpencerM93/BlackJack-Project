@@ -4,11 +4,15 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="./style.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&family=Vesper+Libre:wght@900&display=swap" rel="stylesheet">
     <title>BlackJack</title>
   </head>
   <body>
-    <h1 class="title">BlackJack</h1>
-    <h2>Welcome!</h2>
+    <!--wrap all our card content in a grid -->
+  <div class="grid">
+    <div class="title">
+      <h1 >BlackJack</h1>
+    </div>
     <div class="dealer">
       <p>Dealer</p>
       <div id = "dealer" class="dCard1">
@@ -31,11 +35,12 @@
 
     </div>
     <div class="button-container">
-        <button type="button" class="deal" onclick = "deal()">Deal</button>
+        <button type="button" id="deal" onclick = "deal()">Deal</button>
         <br>
-        <button type="button" class="hold" onClick = "hold()">Hold</button>
+        <button type="button" id="hold" onClick = "hold()">Hold</button>
         <br>
-        <button type="button" class="hit"  onClick = "hit()">Hit</button>
+        <button type="button" id="hit"  onClick = "hit()">Hit</button>
     </div>
+  </div>
   </body>
 </html>
