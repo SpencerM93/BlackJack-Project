@@ -13,7 +13,7 @@ const hit   = document.getElementById('hit'); */
 
 //Deck Array
 const suites = ['Spades', 'Hearts', 'Clubs', 'Diamonds'];
-const values = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'];
+const values = [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace'];
 const deck = [];
 
 //Player Hands
@@ -43,36 +43,23 @@ const createDeck = () => {
 };
 
 //Card Picker Function
-//pushs randomly chosen Deck Object to user and dealer
+//pushs randomly chosen Deck Object
 const cardPicker = (arr1, arr2) => {
     let randomNum = Math.floor(Math.random() * 52);
-    arr1.push(arr2.splice(randomNum, 1));
-    return arr1;
+    let card = arr2[randomNum];
+    arr1.push(card);
+    arr2.splice(randomNum, 1);
 };
 
+//getSum function adds up the value of the weights of the cards in user and dealer hands.
+let getSum = function(array){
+  let sum = array.reduce(function(a,b){
+    return a + b.weight;
+  }, 0);
+  return sum;
+};
 
 /*
-//Shuffle Function
-//makes a shuffle function and shuffles the values and suites array
-const Shuffle = () => {
-  let shuffleValues = math.floor(math.random(values[x]) * 1000);
-  let shuffleSuites = math.floor(math.random(values[i]) * 1000);
-}
-*/
-
-
-
-
-
-
-
-/*let userHandSum = userHand.reduce(function(a, b){
-            return a + b;
-        }, 0);
-    let dealerHandSum = dealerHand.reduce(function(a, b){
-                return a + b;
-            }, 0);
-
 //Start Game function
 
 const start = () => {
