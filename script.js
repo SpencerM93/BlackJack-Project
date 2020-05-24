@@ -1,20 +1,17 @@
 
-
-/*
 //   Deck Variables
-const dealer  = document.getElementById('dealer');
-const deck = document.getElementById('deck');
+const dealer  = document.getElementById("dealer");
+const deck =  document.getElementById('deck');
 const user    = document.getElementById('user');
-
 //Button Variables
 const deal  = document.getElementById('deal');
 const hold  = document.getElementById('hold');
-const hit   = document.getElementById('hit'); */
+const hit   = document.getElementById('hit');
 
 //Deck Array
 const suites = ['Spades', 'Hearts', 'Clubs', 'Diamonds'];
 const values = [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace'];
-const deck = [];
+const deckb = [];
 
 //Player Hands
 let userHand = [];
@@ -59,12 +56,12 @@ let getSum = function(array){
   return sum;
 };
 
-/*
+
 //Start Game function
 
 const start = () => {
  cardPicker();
-
+}
 //Hold Function
 const holdFunc = () => {
 
@@ -72,18 +69,32 @@ const holdFunc = () => {
 
 
 
-
-
-//End Game function
-const end = () => {
-  if(userHand > dealerHand || dealerHand > userHand || userHand === 21 || dealerHand === 21 ||) {
-
+// Game Reset Function
+const gameOver = (str) => {
+  if(str === 'win'){
+    deal.innerHTML = 'You win! Play again?';
+  } else {
+    deal.innerHTML = 'Game over! Play again?'
   }
+    currentlyPlaying = false;
 }
 
 
 
 
 
+
 //On click events
-deal.addEventListener("click", start());*/
+//onclick runs the start function
+deal.onclick = () => {
+start();
+}
+//the hold button is a conditional and uses the gameOver Function
+//the game wining if uses the if statement for game wining and else if if the first if is false
+hold.onclick = () => {
+  if(userHand > dealerHand || userHand === 21){
+    gameOver('win');
+  } else if (dealerHand > userHand || dealerHand === 21) {
+    gameOver('lose');
+  }
+}
