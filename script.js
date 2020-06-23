@@ -1,4 +1,4 @@
-
+/*
 //   Deck Variables
 const dealer  = document.getElementById("dealer");
 const deck =  document.getElementById('deck');
