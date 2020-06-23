@@ -7,11 +7,12 @@ const user    = document.getElementById('user');
 const deal  = document.getElementById('deal');
 const hold  = document.getElementById('hold');
 const hit   = document.getElementById('hit');
+*/
 
 //Deck Array
 const suites = ['Spades', 'Hearts', 'Clubs', 'Diamonds'];
 const values = [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace'];
-const deckb = [];
+const deck = [];
 
 //Player Hands
 let userHand = [];
@@ -53,15 +54,30 @@ let getSum = function(array){
   let sum = array.reduce(function(a,b){
     return a + b.weight;
   }, 0);
+  /*if sum is greater than or equal to 21, we need to call the gameOver function
+  if(sum >= 21){
+    gameOver();
+  } */
   return sum;
 };
 
 
 //Start Game function
+//Creates deck, deals two cards to user and dealer, adds sum of their hands. 
 
 const start = () => {
- cardPicker();
-}
+  createDeck();
+  let i = 0;
+  do{
+    cardPicker(userHand, deck);
+    cardPicker(dealerHand, deck);
+    i++;
+  } while(i < 2);
+  getSum(userHand);
+  getSum(dealerHand);
+};
+
+/*
 //Hold Function
 const holdFunc = () => {
 
@@ -98,3 +114,4 @@ hold.onclick = () => {
     gameOver('lose');
   }
 }
+*/
